@@ -109,15 +109,21 @@ const switchCase = (x) => {
 
 // switchCase("Hello")
 // ternary statement => shorthand for a if-else block
+
+// let z = 1
+// z === 1 ? console.log("qwerty") : console.log("zxcvb")
+
 const tern = (y) => {
   // if (y === "Sup") {
   //   console.log("sup dude")
   // } else {
   //   console.log("rude")
   // }
+  // condition ? if true return this : if false return this
   return y === "Sup" ? "sup dude" : "rude"
 }
-// console.log(tern("Sup"))
+console.log(tern("Sup"))
+console.log(tern(""))
 
 // incrementing/decrementing
 
@@ -142,11 +148,11 @@ function greeting2() {
 
 let num1 = 10
 let num2 = "10"
-console.log(typeof num1)
-console.log(typeof num2)
-// Number => convert any datatype to a number
-// parseInt => convert string to Integer
-console.log(num1 === num2)
+// console.log(typeof num1)
+// console.log(typeof num2)
+// // Number => convert any datatype to a number
+// // parseInt => convert string to Integer
+// console.log(num1 === num2)
 
 // Datatypes in Javascript?
 
