@@ -34,7 +34,6 @@ const matchName = (driversArrObj, searchName) => {
 const matchHometown = (driversArrObj, searchTown) => {
   return driversArrObj.filter((driverObj) => {
     // console.log("driverObjName:\t", driverObj.name)
-
     return driverObj.hometown === searchTown
   })
 }
@@ -85,10 +84,10 @@ const driversArrObj = [
 // console.log(findMi)
 
 // const findPhilsArr = matchName(driversArrObj, "Phil")
-// const findEuneges = matchHometown(driversArrObj, "Eugene")
+// const findEugene = matchHometown(driversArrObj, "Eugene")
 
 // console.log("findPhilsArr\t", findPhilsArr)
-// console.log("findEuneges\t", findEuneges)
+// console.log("findEugene\t", findEugene)
 
 // ! ++++++++++++++++++++++++++++++++++++++
 // Control Flow
