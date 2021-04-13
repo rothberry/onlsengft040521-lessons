@@ -115,7 +115,8 @@ const createRecordObj = (arr) => {
   // const wins = arr.filter((x) => x === "w").length
   // const losses = arr.filter((x) => x === "l").length
   // const ties = arr.filter((x) => x === "t").length
-  // return { wins, losses, ties }
+  // return { w: wins, losses, ties }
+
   // let wins = 0,
   //   losses = 0,
   //   ties = 0
@@ -130,11 +131,14 @@ const createRecordObj = (arr) => {
   // })
   // return { wins, losses, ties }
 
+  // ? Dynamic Object Counter
   let obj = {}
   arr.forEach((game) => {
     // check to see if key of [game] exists in the obj
     console.log(obj)
-    !!obj[game] ? obj[game]++ : (obj[game] = 1)
+    if (game === "w" || game === "l" || game === "t") {
+      !!obj[game] ? obj[game]++ : (obj[game] = 1)
+    }
   })
   return obj
 }
@@ -164,6 +168,7 @@ const findFirstTie = (arr) => {
 // Return a string of the first tie, along with which game it was
 
 const arr1 = "wwwlllwlwtlwlwltlw".split("")
+const arr2 = "aaasasg1q245agawltatasltw6aaggggfssss".split("")
 // ['w', 'w', 'l', 't'... ]
 
 console.log("\nConsole Testing!\n")
@@ -171,3 +176,4 @@ console.log(createRecordObj(arr1))
 console.log(displayRecord(arr1))
 console.log(displayRecordArr(arr1))
 console.log(findFirstTie(arr1))
+// console.log("☆(❁‿❁)☆")

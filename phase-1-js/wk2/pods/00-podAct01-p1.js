@@ -123,16 +123,16 @@ const createRecordObj = (arr) => {
     losses: l,
     ties: t,
   }
-  return { w, l, t }
+  // return { w, l, t }
 
-  let obj = {}
-  arr.forEach((game) => {
-    // check if obj["l"] exists?
-    // if so, increase the count by 1
-    // or start count at 1
-    !!obj[game] ? (obj[game] += 1) : (obj[game] = 1)
-  })
-  return obj
+  // let obj = {}
+  // arr.forEach((game) => {
+  //   // check if obj["l"] exists?
+  //   // if so, increase the count by 1
+  //   // or start count at 1
+  //   !!obj[game] ? (obj[game] += 1) : (obj[game] = 1)
+  // })
+  // return obj
 }
 // Return an object with number of wins/loses/ties
 
@@ -143,20 +143,37 @@ const displayRecord = (arr) => {
 // Return a string saying => "You've got X Wins, X Loses.. etc"
 
 const displayRecordArr = (arr) => {
-  let obj = {}
-  return arr.map((game) => {
-    !!obj[game] ? (obj[game] += 1) : (obj[game] = 1)
-    return game + obj[game]
+  let w = 0
+  l = 0
+  t = 0
+  const newWLRecord = arr.map((x) => {
+    if (x === "w") {
+      w++
+      return `${x}${w}`
+    } else if (x === "l") {
+      l++
+      return `${x}${l}`
+    } else if (x === "t") {
+      t++
+      return `${x}${t}`
+    }
   })
+  return newWLRecord
+
+  // let obj = {}
+  // return arr.map((game) => {
+  //   !!obj[game] ? (obj[game] += 1) : (obj[game] = 1)
+  //   return game + obj[game]
+  // })
 }
 // Return a new array by adding the current num of w/l/t to the array => ["w1", "l1", "w2"...]
 
 const findFirstTie = (arr) => {
   // Your Code Here
   // hint: find with index....
-  const foundIndex = arr.findIndex((game) => {
-    return game === "t"
-  })
+  return `Game ${arr.indexOf(`t`) + 1} was the first tie`
+
+  const foundIndex = arr.findIndex((game) => game === "t")
   return `The first tie was game ${foundIndex + 1}`
 }
 // Return a string of the first tie, along with which game it was
