@@ -1,0 +1,66 @@
+{
+  "drivers": [
+    {
+      "name": "Dominic Toretto",
+      "id": 1,
+      "car": "1969 Ford Mustang",
+      "img": "https://upload.wikimedia.org/wikipedia/en/0/0e/Dom_screenshot.JPG"
+    },
+    {
+      "name": "Brian O'Conner",
+      "id": 2,
+      "car": "Mazda RX-7",
+      "img": "https://upload.wikimedia.org/wikipedia/en/7/78/Furious_7_Brian_O%27Conner.jpg"
+    },
+    {
+      "name": "Gisele Yashar",
+      "car": "1997 Honda Civic",
+      "id": 3,
+      "img": "https://upload.wikimedia.org/wikipedia/en/d/d8/GiseleYasharProfileImage.jpg"
+    },
+    {
+      "name": "Roman Pearce",
+      "car": "Lambo",
+      "id": 4,
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tyrese_Gibson_%2821479937550%29_%28cropped%29.jpg/440px-Tyrese_Gibson_%2821479937550%29_%28cropped%29.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Tej Parker",
+      "car": "1942 Panzer",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ludacris_2008_%28cropped%29.jpg/440px-Ludacris_2008_%28cropped%29.jpg"
+    }
+  ],
+  "drivers-seed": [
+    {
+      "name": "Dominic Toretto",
+      "id": 1,
+      "car": "1969 Ford Mustang",
+      "img": "https://upload.wikimedia.org/wikipedia/en/0/0e/Dom_screenshot.JPG"
+    },
+    {
+      "name": "Brian O'Conner",
+      "id": 2,
+      "car": "Mazda RX-7",
+      "img": "https://upload.wikimedia.org/wikipedia/en/7/78/Furious_7_Brian_O%27Conner.jpg"
+    },
+    {
+      "name": "Gisele Yashar",
+      "car": "1997 Honda Civic",
+      "id": 3,
+      "img": "https://upload.wikimedia.org/wikipedia/en/d/d8/GiseleYasharProfileImage.jpg"
+    },
+    {
+      "name": "Roman Pearce",
+      "car": "Lambo",
+      "id": 4,
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tyrese_Gibson_%2821479937550%29_%28cropped%29.jpg/440px-Tyrese_Gibson_%2821479937550%29_%28cropped%29.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Tej Parker",
+      "car": "1942 Panzer",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ludacris_2008_%28cropped%29.jpg/440px-Ludacris_2008_%28cropped%29.jpg"
+    }
+  ]
+}
