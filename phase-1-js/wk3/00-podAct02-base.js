@@ -3,24 +3,54 @@
 /**
 
   What is the DOM?
+  - Tree model of all your html nodes/css
+  - Document Object Model
 
   What are some node/document methods to find Nodes?
+  - .getElementById   => document.getElementById("button-1234")
+  - .querySelector    => node/document.querySelector()
+  - .querySelectorAll
+  - .getElementsByClassName
+  - .getElementsByTagName
 
-  What are the query selectors for:
-  - class   => 
-  - id      => 
-  - body    => 
-  - input   => 
+  What are the query css selectors for:
+  - class   => node.querySelector(".class-name")
+  - id      => node.querySelector("#id-name")
+  - body    => document.querySelector("body") | document.body
+  - input   => node.querySelector('input[name="input-name"]')
 
   How you we make sure that the DOM is fully loaded before we add our JavaScript?
-  
+  - defer
+  - DOMContentLoaded
+  - place our script tag at thebottom of the HTML
+
   What are Events?
+  - User interactions
   
   What are some types of events?
+  - click
+  - submit
+  - mouse events
+  - key events
+  - scroll
+  - hover
+  - onchange
+  - audio events
+  - DOMContentLoaded
 
   How do we make sure that a <submit> btn doesn't reload the page?
+  - event.preventDefault()
 
   Synchronous vs asynchronous code?
+  - Sync    => Code that waits for the previous line to resolve before starting
+    -- code that has to run in sequence
+    let x = 0
+    let y = 1
+    let z = x + y
+  - Async   => Longer Code that can run in the background while other code can run
+    -- Code that can run in the background
+    fetch(url) => returns a Promise
+  - EX: A Chef in the kitchen.
 
  */
 
