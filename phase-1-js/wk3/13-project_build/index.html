@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Best Brewery Finder</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script defer src="src/index.js"></script>
+    <!-- <script defer src="src/index-sol.js"></script> -->
+  </head>
+
+  <body>
+    <div class="nav">
+        <button id="brew-all">List all Breweries</button>
+        <button id="search-name">Search By Name</button>
+        <button id="search-city">Search By City</button>
+    </div>
+
+    <div id="search-div">
+      <form hidden id="search-form-name">
+        <input name="search-name" placeholder="Search Name">
+        <input type="submit" value="Search">
+      </form>
+      <form hidden id="search-form-city">
+        <input name="search-city" placeholder="Search">
+        <input type="submit" value="Search">
+      </form>
+    </div>
+
+    <div class="brewery-header">
+      <h1>Best Brewery Finder
+        <img width="5%" height="5%" src="https://www.pinclipart.com/picdir/middle/550-5501281_beer-cartoon-free-png-clipart.png">
+      </h1>
+    </div>
+
+    <div id="brew-container">
+      <ul id="brew-list">
+      </ul>
+    </div>
+
+    <div id="brew-profile">
+    </div>
+
+    <footer class="branding">
+      <small>&copy; 2021<strong>BrewFinder</strong></small>
+    </footer>
+
+  </body>
+
+</html>

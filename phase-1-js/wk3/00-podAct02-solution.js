@@ -52,7 +52,7 @@
  *  
  * Your goal:
  * 1. Add a button with id="fetch" to body
- * 2. Add a div at the end of the body of id="person-fetch"
+ * 2. Add a div at the end of the body of id="person-container"
  * 3. Add an event listener on the fetch button that fetches to https://randomuser.me/api/
  * 4. Take the response from the API and display the 
  * - Title. Firstname Lastname

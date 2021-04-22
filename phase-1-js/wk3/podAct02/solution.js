@@ -1,5 +1,6 @@
 // ! Find DOM Nodes
 const url = 'https://randomuser.me/api/'
+const fetchBtn = document.getElementById("fetch")
 const personDiv = document.getElementById("person-container")
 // ! Handlers
 
@@ -8,11 +9,6 @@ const personDiv = document.getElementById("person-container")
 // ! Add Fetch functionality
 
 // * Solution 1
-// const fetchBtn = document.createElement("button")
-// fetchBtn.innerText = "FETCH"
-// document.body.append(fetchBtn)
-const fetchBtn = document.getElementById("fetch")
-
 const fetchPerson = () => {
   fetch(url)
   .then(res => res.json())
@@ -65,6 +61,10 @@ const createOnePerson = person => {
   <img src=${pic}>
   </div>
   `
+}
+
+const resetPersonContainer = () => {
+  personDiv.innerHTML = ""
 }
 
 fetchBtn.addEventListener("click", fetchPerson)
