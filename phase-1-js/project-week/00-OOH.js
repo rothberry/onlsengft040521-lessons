@@ -65,22 +65,3 @@ const displayIngredients = (mealObj, ingredientList) => {
 // console.log(createIngredientsList("Test2"))
 // createIngredientsList(findMeal("Test1"))
 // createIngredientsList(arr[1])
-
-const songs = [
-  "Porter Robinson - Look at the Sky",
-  "Lido - Rise",
-  "STUCA - Where we are",
-  "BADRAPPER - VERSACE PILLS [CODE ZERO REMIX]",
-  "Illenium - Leaving (AWAY Remix)",
-  "luupy - my glasses literally broke I can't see anything",
-  "Kompany - Feel It All",
-  "Safari Chan - D E E P E R",
-  "Mersiv, Fryar - Paradise",
-]
-const mostRecentSongs = (songs) => {
-  songs.forEach((song,  idx) => {
-    console.log(`${idx + 1}: ${song}`)
-  })
-}
-
-mostRecentSongs(songs)
