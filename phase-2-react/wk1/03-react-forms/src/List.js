@@ -1,38 +1,32 @@
 import React, { Component } from "react"
 import Item from "./Item"
 import Form from "./Form"
+const sampleURL = "http://localhost:3000"
 
 const initialTodos = [
-  { title: "Laundry", id: 1 },
-  { title: "Trash", id: 2 },
-  { title: "The Dishes", id: 3 },
+  { title: "Laundry", author: "phil", id: 1 },
+  { title: "Trash", author: "chauncy", id: 2 },
+  { title: "The Dishes", author: "jill", id: 3 },
 ]
 
 class List extends Component {
-  // Add state to list
-  // in our state, we will have a list of todos from our "database"
-
-  // ? How do we get state into a class comp
-  // constructor(props) {
-  //   super(props) // brings in all the parent func
-  //   this.state = { todos: initialTodos }
-  // }
 
   state = {
     todos: initialTodos,
-    count: 0,
-    status: false,
+    count: initialTodos.length,
   }
 
   addNewTodo = (formData) => {
     console.log("new todo: ", formData)
     // add our new todo to the state.todos
     const newTodo = {
-      id: this.state.todos.length + 1,
+      id: this.state.count + 1,
       title: formData.title,
+      author: formData.author,
     }
     this.setState((prevState) => {
       return {
+        count: ++prevState.count,
         todos: [...prevState.todos, newTodo],
       }
     })
@@ -41,8 +35,9 @@ class List extends Component {
   postNewTodo = (formData) => {
     // Create or fix our formData obj to send to the DB
     const newTodo = {
-      id: this.state.todos.length + 1,
+      id: this.state.count + 1,
       title: formData.title,
+      author: formData.author,
     }
     const postReqObj = {
       method: "POST",
@@ -58,6 +53,7 @@ class List extends Component {
       .then((backendData) => {
         this.setState((prevState) => {
           return {
+            count: ++prevState.count,
             todos: [...prevState.todos, backendData],
           }
         })
@@ -76,19 +72,17 @@ class List extends Component {
         todos: newTodos,
       }
     })
-    console.log("here!")
   }
 
   render() {
-    console.log("in render: ", this.state)
+    // console.log("in render: ", this.state)
     // Loop over the todos and create listItems
 
     const { todos } = this.state
-
-    const listItems = todos.map(({ id, title }) => {
+    const listItems = todos.map(({ id, title, author }) => {
       // return <li id={todo.id}>{todo.title}</li>
       // const { id, title } = todo
-      return <Item id={id} title={title} handleOnDelete={this.handleDelete} />
+      return <Item id={id} title={title} author={author} handleOnDelete={this.handleDelete} />
     })
 
     return (

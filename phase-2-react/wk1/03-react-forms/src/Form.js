@@ -30,7 +30,7 @@ class Form extends Component {
 
   state = {
     title: "",
-    // author: "",
+    author: "",
   }
 
   handleSubmit = (e) => {
@@ -57,15 +57,17 @@ class Form extends Component {
         <input
           type='text'
           name='title'
+          placeholder="Write your note"
           value={this.state.title}
           onChange={this.handleChange}
         />
-        {/* <input
+        <input
           type='text'
           name='author'
+          placeholder="Who are you?"
           value={this.state.author}
           onChange={this.handleChange}
-        /> */}
+        />
         <input type='submit' value='New Todo' />
       </form>
     )
