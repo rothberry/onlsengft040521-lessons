@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import Item from "./Item"
-import Form from "./Form"
-const sampleURL = "http://localhost:3000"
+import { Form1, Form2 } from "./Form"
+const sampleURL = "http://localhost:3001"
 
 const initialTodos = [
   { title: "Laundry", author: "phil", id: 1 },
@@ -10,12 +10,12 @@ const initialTodos = [
 ]
 
 class List extends Component {
-
   state = {
     todos: initialTodos,
     count: initialTodos.length,
   }
 
+  // addNewTodo(formData) { needs to bind
   addNewTodo = (formData) => {
     console.log("new todo: ", formData)
     // add our new todo to the state.todos
@@ -82,12 +82,19 @@ class List extends Component {
     const listItems = todos.map(({ id, title, author }) => {
       // return <li id={todo.id}>{todo.title}</li>
       // const { id, title } = todo
-      return <Item id={id} title={title} author={author} handleOnDelete={this.handleDelete} />
+      return (
+        <Item
+          id={id}
+          title={title}
+          author={author}
+          handleOnDelete={this.handleDelete}
+        />
+      )
     })
 
     return (
       <div>
-        <Form addNewTodo={this.addNewTodo} />
+        <Form1 addNewTodo={this.addNewTodo} />
         <ul className='list'>{listItems}</ul>
       </div>
     )
