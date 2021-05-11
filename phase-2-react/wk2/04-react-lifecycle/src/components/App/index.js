@@ -1,76 +1,77 @@
 import React, { Component } from "react"
 import "./style.css"
-import Counter from "../Counter/"
+import Counter from "../Counter"
 
 const timeImage =
   "https://static.wikia.nocookie.net/bojackhorseman/images/3/37/A%2BWhat%2BTime%2BIs%2BIt%2BRight%2BNow_logo.png"
-
+const url = "https://pokeapi.co/api/v2/"
 console.clear()
 class App extends Component {
   // premount
   constructor() {
     super()
     this.state = {
-      location: "Constructor",
-      currentTime: new Date().toLocaleTimeString(),
+      location: "Constructor!",
+      currentTime: "",
       createBtn: false,
+      poke: {},
     }
-    console.log("Constructor")
+    console.log("Constructor App")
   }
 
+  fetchPoke = () => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ poke: data })
+      })
+  }
   // static getDerivedStateFromProps() {
-  //   console.log("Get Derived State")
+  //   console.log("Derived State App")
+  //   return null
   //   return {
-  //     location: "Derived State",
+  //     location: "Derived",
   //   }
   // }
 
   componentDidMount() {
-    console.log("App Mounted")
+    console.log("Mounted App")
+    // this.fetchPoke()
+    setTimeout(this.timer, 3000)
   }
 
-  componentWillUnmount() {
-    console.log("App UnMounted")
+  timer = () => {
+    this.setState({ location: "NUUUUPE" })
   }
 
+  // if the state changes, then it triggers a rerender automatically
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("should Update", nextProps, nextState)
+    console.log("Updating App")
     return this.state !== nextState
   }
 
-  getCurrentTime = () => {
-    console.log("getCurrentTime")
-    const currentTime = new Date().toLocaleTimeString()
-    this.setState({
-      ...this.state,
-      currentTime,
-    })
-  }
-
-  createTimeBtn = async () => {
-    await this.setState((prevState) => {
+  createTimeBtn = () => {
+    this.setState((prevState) => {
       return {
         createBtn: !prevState.createBtn,
       }
     })
-    if (this.state.createBtn) {
-      return (
-        <Counter
-          getCurrentTime={this.getCurrentTime}
-          currentTime={this.state.currentTime}
-          timeImage={timeImage}
-        />
-      )
-    }
+  }
+  getCurrentTime = () => {
+    console.log("Getting Time")
+    const currentTime = new Date().toLocaleTimeString()
+    this.setState({ currentTime })
   }
 
   render() {
-    console.log("Rendered", this.state)
+    console.log("Rendered App", this.state)
     const { location, currentTime, createBtn } = this.state
     return (
       <div className='app-div'>
         <h1>{location}</h1>
-        <button onClick={this.createTimeBtn}>Create button</button>
+        <button className='btn' onClick={this.createTimeBtn}>
+          Toggle Time
+        </button>
         {!!createBtn ? (
           <Counter
             getCurrentTime={this.getCurrentTime}

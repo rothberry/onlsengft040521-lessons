@@ -3,11 +3,16 @@ import "./style.css"
 
 class Counter extends Component {
   componentDidMount() {
-    console.log("Counter Mounted")
+    console.log("Mounting Counter")
   }
 
   componentWillUnmount() {
-    console.log("Counter UnMounted")
+    console.log("UnMounting Counter")
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("Updating Counter")
+    return this.props.currentTime !== nextProps.currentTime
   }
 
   render() {
