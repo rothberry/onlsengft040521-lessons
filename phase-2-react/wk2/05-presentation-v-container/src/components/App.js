@@ -19,11 +19,9 @@ class App extends Component {
   }
 
   fetchData = (term, id, secondTerm) => {
-    let fetchedUrl
+    let fetchedUrl = `${LOTR_URL}${term}`
     if (!!id && !!secondTerm) {
-      fetchedUrl = `${LOTR_URL}${term}/${id}/${secondTerm}`
-    } else {
-      fetchedUrl = `${LOTR_URL}${term}`
+      fetchedUrl = `${fetchedUrl}/${secondTerm}`
     }
     return fetch(fetchedUrl, {
       headers: {
