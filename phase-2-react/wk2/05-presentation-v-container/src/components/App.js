@@ -1,7 +1,8 @@
 import React, { Component } from "react"
 import MovieContainer from "../containers/MovieContainer"
 import QuoteContainer from "../containers/QuoteContainer"
-// require("dotenv").config()
+import env from "react-dotenv"
+require("dotenv").config()
 
 const API_KEY = process.env["API_KEY"]
 const LOTR_URL = "https://the-one-api.dev/v2/"
@@ -14,7 +15,7 @@ class App extends Component {
     quote: {},
   }
   componentDidMount() {
-    this.setMovies()
+    // this.setMovies()
     // this.setCharacters()
   }
 
@@ -53,6 +54,8 @@ class App extends Component {
     // const mappedMovies = this.state.movies.map((movieObj) => {
     //   re`${LOTR_URL}${term}/${id}/${secondTerm}`
     // })
+    // console.log(process.env)
+    // console.log(env)
     return (
       <div>
         <h1>Lord Of the Rangs</h1>
