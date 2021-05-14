@@ -3,10 +3,12 @@ import ReactDOM from "react-dom"
 import "./index.css"
 import App from "./components/App"
 import reportWebVitals from "./reportWebVitals"
+import AppHook from "./components/App/AppHook"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <AppHook />
   </React.StrictMode>,
   document.getElementById("root")
 )

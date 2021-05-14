@@ -82,7 +82,7 @@ export class Form2 extends Component {
     }
     return (
       <form onSubmit={this.handleSubmit} style={styling}>
-        <label>New Todo: </label>
+        <label for='title'>New Todo: </label>
         <input
           type='text'
           name='title'

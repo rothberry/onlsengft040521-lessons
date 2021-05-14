@@ -24,7 +24,7 @@ const btn = document.getElementById("btn-1")
 btn.addEventListener("click", handleClick)
 ```
 
-```JSX
+```jsx
   <button onClick={handleOnClick}>
     Click Me!
   </button>

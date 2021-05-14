@@ -15,6 +15,7 @@ class App extends Component {
       currentTime: "",
       createBtn: false,
       poke: {},
+      count: 0,
     }
     console.log("Constructor App")
   }
@@ -36,7 +37,7 @@ class App extends Component {
 
   componentDidMount() {
     console.log("Mounted App")
-    // this.fetchPoke()
+    this.fetchPoke()
     setTimeout(this.timer, 3000)
   }
 

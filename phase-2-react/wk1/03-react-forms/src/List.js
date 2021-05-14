@@ -85,6 +85,7 @@ class List extends Component {
       return (
         <Item
           id={id}
+          key={id}
           title={title}
           author={author}
           handleOnDelete={this.handleDelete}

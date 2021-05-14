@@ -18,17 +18,17 @@ We define the routes beforehand and the render their actions separately
 
 With React-Router, rendering the routes and JSX happens at the same time. This means no external routes.
 
-
 **Client-side routing**
 With react-router handling the routing only require 1 GET request to the backend that get's the pages HTML. This gives us the ability to enforce the SPA (Single Page App), since we can render the new route's page without refreshing
 
-
 **User Experience of Routing**
+
 - The user can us the back/forward to navigate the app
 - the user can nav via URLs
 - we can make urls describe the action that the user might be taking
 
 **Drawbacks**
+
 - We're loading all the frontend at once, so it might add some inital load time.
 - We have to design all of our routes to be couple with our component structure (which can be a good thing later on)
 
@@ -44,20 +44,6 @@ window.history.back()
 ```
 
 React Router wraps this functionality in components that make it easy to transform the browser's URL.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## React Router Install
 
@@ -102,7 +88,6 @@ Renders only one Route. Picks the first that matches, (doesn't look at the other
 ### Redirect
 
 Forces a redirect to a particular route. We won't use this here.
-
 
 We need to access information from the 'match' data in React Router.
 
@@ -171,4 +156,23 @@ class NeedsTheInfo extends React.Component {
 export default withRouter(NeedsTheInfo)
 ```
 
-A function that takes in a component and returns a specialized version of that component - is called the 'Higher Order Component' pattern.
+A **function** that takes in a component and returns a specialized version of that component - is called the 'Higher Order Component' pattern.
+
+
+
+```shell
+  > sudo apt update
+```
+
+```ruby
+  def my_method
+    puts "HELLLO"
+  end
+```
+
+```java
+  main() {
+    
+  }
+
+```
