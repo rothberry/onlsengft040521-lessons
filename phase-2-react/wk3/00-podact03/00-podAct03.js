@@ -27,8 +27,6 @@
   1. Assign state to the correct components (May need to change type of components from func to class)
   2. Create the form for a new coffee (name, size)
   3. Assign event handlers where needed
-  4. 
-  5.
 
   Stretch:
   Adding react-router for the `new` form and redirecting to the `coffee-container` page
