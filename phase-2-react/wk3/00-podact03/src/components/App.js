@@ -1,4 +1,5 @@
 // TODO Control where all the props/state need to be directed through
+import React, { Component } from "react"
 
 const initialCoffees = [
   {
@@ -15,8 +16,16 @@ const initialCoffees = [
   },
 ]
 
-const App = () => {
-  return <div className='App'>Create your coffee app here!</div>
+
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        Create your coffee app here!
+        {/* Bring in the Container and Form */}
+      </div>
+    )
+  }
 }
 
 export default App

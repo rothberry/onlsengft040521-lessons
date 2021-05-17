@@ -1,11 +1,12 @@
 // TODO map all your coffee components here
+import React, { Component } from 'react'
 
-const CoffeeContainer = () => {
-  return (
-    <div className="coffee-container">
-      CoffeeContainer
-    </div>
-  )
+export default class CoffeeContainer extends Component {
+  render() {
+    return (
+      <div className="coffee-container">
+        CoffeeContainer
+      </div>
+    )
+  }
 }
-
-export default CoffeeContainer
