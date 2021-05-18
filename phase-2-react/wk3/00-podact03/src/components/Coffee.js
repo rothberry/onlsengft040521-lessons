@@ -1,10 +1,12 @@
 // TODO Utilize the props to create a coffee component
 
-const Coffee = (props) => {
+const Coffee = ({ coffee: { name, size } }) => {
   return (
-    <div className="coffee">
-      Coffee
-    </div>
+    <li className='coffee'>
+      <h3>
+        {name} <i>{size}</i>
+      </h3>
+    </li>
   )
 }
 

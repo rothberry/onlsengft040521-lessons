@@ -1,5 +1,7 @@
 // TODO Control where all the props/state need to be directed through
 import React, { Component } from "react"
+import CoffeeContainer from "../containers/CoffeeContainer"
+import CoffeeForm from "./CoffeeForm"
 
 const initialCoffees = [
   {
@@ -16,13 +18,28 @@ const initialCoffees = [
   },
 ]
 
-
 class App extends Component {
+  state = {
+    coffees: initialCoffees,
+  }
+
+  addCoffee = (coffeeObj) => {
+    this.setState((prevState) => {
+      return {
+        coffees: [...prevState.coffees, coffeeObj],
+      }
+    })
+  }
+
   render() {
+    const { coffees } = this.state
     return (
       <div className='App'>
-        Create your coffee app here!
+        COFOFFEEE
         {/* Bring in the Container and Form */}
+        <CoffeeForm addCoffee={this.addCoffee} />
+        <br />
+        <CoffeeContainer coffees={coffees} />
       </div>
     )
   }
