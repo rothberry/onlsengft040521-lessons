@@ -10,12 +10,7 @@
 =end
 
 require "pry"
-require "rake"
-
-def stars
-  system "clear"
-  puts "*" * Rake.application.terminal_width
-end
+require_relative '../../stars.rb'
 
 class Beer
   attr_reader :size, :type, :current_volume
