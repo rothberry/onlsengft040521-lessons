@@ -12,6 +12,7 @@ class CoffeesController < ApplicationController
     # set_coffee
     if @coffee
       render json: @coffee
+      # render({json: @coffee})
     else
       render_not_found
     end
