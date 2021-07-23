@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react"
+import InstrumentContainer from "./InstrumentContainer"
 
-const Profile = (props) => {
+const Profile = ({ user, url }) => {
   return (
     <div>
-      Profile
+      Profile email: {user.email}
+      <InstrumentContainer url={url} />
     </div>
   )
 }

@@ -2,31 +2,58 @@ import "./App.css"
 import Login from "./Login"
 import Signup from "./Signup"
 import Profile from "./Profile"
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom"
+import {
+  BrowserRouter,
+  Redirect,
+  Route,
+  Switch,
+  useHistory,
+} from "react-router-dom"
 import { useState, useEffect } from "react"
+import NavBar from "./NavBar"
 
 const App = () => {
   const [user, setUser] = useState({})
-  const [loggedIn, setLoggedIn] = useState(true)
+  const [loggedIn, setLoggedIn] = useState(false)
+  let history = useHistory()
 
-  // Component Mounting
+  // Component Did Mount
   useEffect(() => {
-    // send a fetch to our user#show to see if there is a user in the session
-    // save our session/cookies/token to our localStorage
-    if (!!localStorage.user) {
-      setUser(localStorage.user)
-      setLoggedIn(true)
-    }
+    findMe()
   }, [])
+
+  useEffect(() => {
+    console.log(user, loggedIn)
+  })
+
+  const findMe = () => {
+    fetch("/me")
+    .then(r => {
+      if (r.ok) {
+        r.json().then(u => {
+          setUser(u)
+          setLoggedIn(true)
+        })
+      }
+    })
+      // .then((res) => res.json())
+      // .then((data) => {
+      //   console.log(data)
+      //   if (!data.message) {
+      //     setUser(data)
+      //     setLoggedIn(true)
+      //     history.push("/profile")
+      //   }
+      // })
+  }
 
   const handleLogout = (e) => {
     const delObj = {
       method: "DELETE",
     }
-    fetch("http://localhost:3001/logout", delObj)
+    fetch("/logout", delObj)
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
+      .then(() => {
         setLoggedIn(false)
         setUser({})
       })
@@ -36,21 +63,24 @@ const App = () => {
   return (
     <div className='App'>
       <BrowserRouter>
-        {loggedIn ? <button onClick={handleLogout}>Logout</button> : null}
+        <NavBar loggedIn={loggedIn} handleLogout={handleLogout} />
         <Switch>
-          {/* <Route exact path='/login' component={Login} /> */}
-          <Route
-            exact
-            path='/login'
-            render={(routeProps) => (
-              <Login setUser={setUser} setLoggedIn={setLoggedIn} />
-            )}
-          />
-          <Route exact path='/signup' component={Signup} />
-          {loggedIn ? (
-            <Route path='/profile' component={Profile} />
+          <Route exact path='/signup'>
+            <Signup />
+          </Route>
+          <Route exact path='/login'>
+            <Login
+              setLoggedIn={setLoggedIn}
+              setUser={setUser}
+              history={history}
+            />
+          </Route>
+          {user.id ? (
+            <Route exact path='/profile'>
+              <Profile user={user} />
+            </Route>
           ) : (
-            <Redirect to='/login' component={Login} />
+            <Redirect to='/login' />
           )}
         </Switch>
       </BrowserRouter>

@@ -1,19 +1,20 @@
 import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import { Link } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 
 const RAILS_API = "http://localhost:3001/"
 
 const Signup = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const history = useHistory()
 
   const handleChange = (e) => {
     if (e.target.name === "email") setEmail(e.target.value)
     if (e.target.name === "password") setPassword(e.target.value)
   }
 
-  const handleSignup = e => {
+  const handleSignup = (e) => {
     e.preventDefault()
     const signupObj = {
       method: "POST",
@@ -30,9 +31,9 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
+        history.push("/profile")
       })
       .catch((err) => console.log(err))
-
   }
   return (
     <div className='login-form'>
@@ -63,9 +64,6 @@ const Signup = () => {
         <Button variant='primary' type='submit'>
           Signup
         </Button>
-        <Link to='/login'>
-          <Button variant='secondary'>Login</Button>
-        </Link>
       </Form>
     </div>
   )

@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import { Form, Button } from "react-bootstrap"
-import { Link, useHistory } from "react-router-dom"
-
-const RAILS_API = "http://localhost:3001/"
+import { useHistory } from "react-router-dom"
 
 const Login = ({ setUser, setLoggedIn }) => {
   const [email, setEmail] = useState("")
@@ -21,27 +19,22 @@ const Login = ({ setUser, setLoggedIn }) => {
       method: "POST",
       headers: {
         "Content-type": "application/json",
-        Accepts: "application/json",
       },
       body: JSON.stringify({
         email,
         password,
       }),
     }
-    console.log(loginObj)
-    fetch(RAILS_API + "login", loginObj)
+    fetch("/login", loginObj)
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
         if (!!data.id) {
           // set the current user to some higher state
-          localStorage.setItem("user", data)
           setUser(data)
           setLoggedIn(true)
-          history.push('/profile')
-        } else {
-          // display an error to the user
-        }
+          history.push("/profile")
+        } 
       })
       .catch((err) => console.log(err))
   }
@@ -75,9 +68,6 @@ const Login = ({ setUser, setLoggedIn }) => {
         <Button variant='primary' type='submit'>
           Login
         </Button>
-        <Link to='signup'>
-          <Button variant='secondary'>Signup</Button>
-        </Link>
       </Form>
     </div>
   )
