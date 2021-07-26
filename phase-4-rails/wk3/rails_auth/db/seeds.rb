@@ -8,9 +8,11 @@
 
 # Create Users
 
-User.create(email: "phil@phil.com", password: "123")
-User.create(email: "brinton@brinton.com", password: "123")
-User.create(email: "joel@joel.com", password: "123")
-User.create(email: "tyler@tyler.com", password: "123")
+u1 = User.create(email: "phil@phil.com", password: "123")
+u2 = User.create(email: "brinton@brinton.com", password: "123")
+u3 = User.create(email: "joel@joel.com", password: "123")
+u4 = User.create(email: "tyler@tyler.com", password: "123")
+
+# u1.instruments.create(name: section: rating: )
 
 puts "SEEDED"
