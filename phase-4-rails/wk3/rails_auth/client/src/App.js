@@ -27,24 +27,23 @@ const App = () => {
   })
 
   const findMe = () => {
-    fetch("/me")
-    .then(r => {
+    fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then(u => {
-          setUser(u)
+        r.json().then((u) => {
           setLoggedIn(true)
+          setUser(u)
         })
       }
     })
-      // .then((res) => res.json())
-      // .then((data) => {
-      //   console.log(data)
-      //   if (!data.message) {
-      //     setUser(data)
-      //     setLoggedIn(true)
-      //     history.push("/profile")
-      //   }
-      // })
+    // .then((res) => res.json())
+    // .then((data) => {
+    //   console.log(data)
+    //   if (!data.message) {
+    //     setUser(data)
+    //     setLoggedIn(true)
+    //     history.push("/profile")
+    //   }
+    // })
   }
 
   const handleLogout = (e) => {
@@ -66,22 +65,14 @@ const App = () => {
         <NavBar loggedIn={loggedIn} handleLogout={handleLogout} />
         <Switch>
           <Route exact path='/signup'>
-            <Signup />
+            <Signup setLoggedIn={setLoggedIn} setUser={setUser} />
           </Route>
           <Route exact path='/login'>
-            <Login
-              setLoggedIn={setLoggedIn}
-              setUser={setUser}
-              history={history}
-            />
+            <Login setLoggedIn={setLoggedIn} setUser={setUser} />
           </Route>
-          {user.id ? (
-            <Route exact path='/profile'>
-              <Profile user={user} />
-            </Route>
-          ) : (
-            <Redirect to='/login' />
-          )}
+          <Route exact path='/profile'>
+            <Profile user={user} />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>
